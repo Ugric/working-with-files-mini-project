@@ -1,0 +1,19 @@
+
+let convert2DArrayToListOfHashMap(twoDArray) = do
+    let titleRow = twoDArray[0]
+    let dataRows = twoDArray[1:]
+    let list = []
+    for row in dataRows do
+        let map = {}
+
+        for i = 0 to row.length-1 do
+            map[titleRow[i]] = row[i]
+        
+        list.addToList(map)
+    
+    return list
+
+let openCSV(path) = do
+    csvfile = ReadCSVFile(path) // returns a 2D array
+    return convert2DArrayToListOfHashMap(csvfile)
+
