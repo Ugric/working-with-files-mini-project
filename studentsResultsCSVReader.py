@@ -9,9 +9,9 @@ def parseStudentsTable(students2DArray: typing.List[list]) -> (
     titles = students2DArray[0]
     if "Student name" not in titles:
         errors.append(r"no 'Student name' column, so all students will be named 'unnamed student {x}'")
-        StudentNameRow = -1
+        StudentNameColumn = -1
     else:
-        StudentNameRow = titles.index("Student name")
+        StudentNameColumn = titles.index("Student name")
     dataRows = students2DArray[1:]
     students: typing.List[typing.Dict[str, typing.Union[str, list]]] = []
     for i in range(len(dataRows)):
@@ -19,10 +19,10 @@ def parseStudentsTable(students2DArray: typing.List[list]) -> (
             "name": f'unnamed student {i + 1}',
             "results": []
         }
-        if StudentNameRow != -1:
-            student["name"] = dataRows[i][StudentNameRow]
+        if StudentNameColumn != -1:
+            student["name"] = dataRows[i][StudentNameColumn]
         for j in range(len(dataRows[i])):
-            if j != StudentNameRow:
+            if j != StudentNameColumn:
                 try:
                     student["results"].append(float(dataRows[i][j]))
                 except ValueError:
