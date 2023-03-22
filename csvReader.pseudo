@@ -1,0 +1,18 @@
+let convert2DArrayToListOfHashMap(twoDArray) = do # convert a 2D array to a list of hashmaps
+    let titleRow = twoDArray[0] # first row is the title row
+    let dataRows = twoDArray[1:] # the rest are data rows
+    let data = [] # list of hashmaps
+    for (row in dataRows) do # for each row in the data rows
+        let map = {} # create a new hashmap for each row
+
+        for (i from 0 to row.length) do # for each column in the row
+            map[titleRow[i]] = row[i] # add the column title as the key and the value as the value
+        
+        data.addToList(map) # add the hashmap to the list of hashmaps
+    
+    return data # return the list of hashmaps
+
+let openCSV(path) = do # open a csv file and return a list of hashmaps
+    csvfile = ReadCSVFile(path) # returns a 2D array
+    return convert2DArrayToListOfHashMap(csvfile) # convert the 2D array to a list of hashmaps
+
