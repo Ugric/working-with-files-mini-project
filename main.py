@@ -1,7 +1,11 @@
 import studentsResultsCSVReader
 
 def main():
-    print(studentsResultsCSVReader.openStudentsResultsCSV("test.csv"))
+    results, err = (studentsResultsCSVReader.openStudentsResultsCSV("test.csv"))
+    for result in results:
+        print(result)
+    for e in err:
+        print(e)
 
 if __name__ == "__main__":
     main()
