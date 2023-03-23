@@ -1,0 +1,8 @@
+let calculate(results) = do # calculate the best, worst, number of results, and average of the results
+    calculated = { # create a dictionary to store the calculated values
+        "best": max(results),
+        "worst": min(results),
+        "number_of_results": results.length,
+        "average": sum(results) / results.length,
+    }
+    return calculated # return the calculated dictionary
