@@ -29,8 +29,7 @@ def parseStudentsTable(students2DArray: typing.List[list]) -> (
                 try:
                     student["results"].append(float(dataRows[i][j]))
                 except ValueError:
-                    errors.append(
-                        f"row {i + 2}, column {j + 1}: {student['name']}'s result for '{titles[j]}' is not a number, so it was ignored")
+                    pass
         students.append(student)
     return students, errors
 

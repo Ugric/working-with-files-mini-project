@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Students Results</h1>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Best Mark</th>
+                <th>Worst Mark</th>
+                <th>Average Mark</th>
+                <th>Total Results</th>
+            </tr>
+            {% for student in studentsResults %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1].best }}</td>
+                <td>{{ student[1].worst }}</td>
+                <td>{{ student[1].average }}</td>
+                <td>{{ student[1].number_of_results }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if errors|length > 0 %}
+        <h3>Errors:</h3>
+        <ul>
+            {% for error in errors %}
+            <li>{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>
